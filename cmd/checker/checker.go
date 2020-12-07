@@ -1,9 +1,12 @@
-package main;
+package main
 
-import "fmt";
-import "file";
+import (
+	"fmt"
+	"file"
+	"os"
+)
 
 func main() {
-	fmt.Println("Test");
-	file.LoadQuiz();
+	file_name := os.Args[1]
+	fmt.Println(string(file.LoadQuiz(file_name)))
 }

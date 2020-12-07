@@ -1,7 +1,17 @@
 package file;
+	
+import (
+	"io/ioutil"
+)
 
-import "fmt";
+func LoadQuiz(name string) []byte {
+	content, err := ioutil.ReadFile(name)
+	check(err)
+	return content
+}
 
-func LoadQuiz() {
-	fmt.Printf("loading file");
+func check(e error) {
+	if e != nil {
+			panic(e)
+	}
 }
