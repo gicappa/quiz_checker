@@ -9,11 +9,11 @@ import (
 )
 
 func TestFindsNoDuplicateLines(t *testing.T) {
-	m := make(map[string]QuizItem)
+	expected := make(map[string]QuizItem)
 
-	m["abc"] = QuizItem{"abc", []int{0}}
-	m["cdf"] = QuizItem{"cdf", []int{1}}
-	m["joy"] = QuizItem{"joy", []int{2}}
+	expected["abc"] = QuizItem{"abc", []int{0}}
+	expected["cdf"] = QuizItem{"cdf", []int{1}}
+	expected["joy"] = QuizItem{"joy", []int{2}}
 
-	assert.Equal(t, m, Check("abc\ncdf\njoy"))
+	assert.Equal(t, expected, Check("abc\ncdf\njoy"))
 }
