@@ -19,18 +19,19 @@ func Check(lines string) map[string]QuizItem {
 	scanner := bufio.NewScanner(strings.NewReader(lines))
 
 	for i := 1; scanner.Scan(); i++ {
-		var item QuizItem
-		if _, ok := items[scanner.Text()]; !ok {
-			item = QuizItem{scanner.Text(), []int{}}
-		} else {
-			item = items[scanner.Text()]
-		}
-
+		item := getOrCreateQuizItem(items, scanner.Text())
 		item.lineNumbers = append(item.lineNumbers, i)
 		items[scanner.Text()] = item
 	}
 
 	return items
+}
+
+func getOrCreateQuizItem(items map[string]QuizItem, question string) QuizItem {
+	if _, ok := items[question]; ok {
+		return items[question]
+	}
+	return QuizItem{question, []int{}}
 }
 
 // Map<String, QuizItem> lines = new HashMap<>();
