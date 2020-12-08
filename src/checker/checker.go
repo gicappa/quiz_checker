@@ -21,20 +21,23 @@ func Check(lines string) map[string]QuizItem {
 	for i := 1; scanner.Scan(); i++ {
 		item := getOrCreateQuizItem(items, scanner.Text())
 		item.lineNumbers = append(item.lineNumbers, i)
-		items[strings.ToLower(scanner.Text())] = item
+		items[hash(scanner.Text())] = item
 	}
 
 	return items
 }
 
 func getOrCreateQuizItem(items map[string]QuizItem, question string) QuizItem {
-	hash := strings.ToLower(question)
 
-	if _, ok := items[hash]; ok {
-		return items[hash]
+	if _, ok := items[hash(question)]; ok {
+		return items[hash(question)]
 	}
 
 	return QuizItem{question, []int{}}
+}
+
+func hash(str string) string {
+	return strings.ToLower(str)
 }
 
 // Map<String, QuizItem> lines = new HashMap<>();
