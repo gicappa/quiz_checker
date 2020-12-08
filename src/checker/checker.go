@@ -2,6 +2,7 @@ package checker
 
 import (
 	"bufio"
+	"regexp"
 	"strings"
 )
 
@@ -37,25 +38,5 @@ func getOrCreateQuizItem(items map[string]QuizItem, question string) QuizItem {
 }
 
 func hash(str string) string {
-	return strings.ReplaceAll(strings.ToLower(str), " ", "")
+	return regexp.MustCompile(`[^a-z\\d]`).ReplaceAllString(strings.ToLower(str), ``)
 }
-
-// Map<String, QuizItem> lines = new HashMap<>();
-
-// StringTokenizer tokenizer = new StringTokenizer(quizText, "\n");
-
-// for (Integer i = 1; tokenizer.hasMoreTokens(); i++) {
-// 		String quizItemText = tokenizer.nextToken();
-
-// 		QuizItem quizItem = lines.get(hash(quizItemText));
-
-// 		if (quizItem == null) {
-// 				quizItem = new QuizItem(quizItemText);
-// 		}
-
-// 		quizItem.addLineNumber(i);
-
-// 		lines.put(quizItem.hash(), quizItem);
-// }
-
-// return lines;

@@ -44,3 +44,12 @@ func TestDisregardsSpaceDifferences(t *testing.T) {
 
 	assert.Equal(t, expected, Check("my Du pli cate\nMy d upli Ca te\nNot a duplicate"))
 }
+
+func TestDisregardsSymbolsDifferences(t *testing.T) {
+	expected := make(map[string]QuizItem)
+
+	expected["myduplicate"] = QuizItem{"my, Du pli cate1", []int{1, 2}}
+	expected["notaduplicate"] = QuizItem{"Not a duplicate", []int{3}}
+
+	assert.Equal(t, expected, Check("my, Du pli cate1\nMy.. d; up';\"li Ca te1\nNot a duplicate"))
+}
