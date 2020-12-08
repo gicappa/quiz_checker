@@ -21,16 +21,19 @@ func Check(lines string) map[string]QuizItem {
 	for i := 1; scanner.Scan(); i++ {
 		item := getOrCreateQuizItem(items, scanner.Text())
 		item.lineNumbers = append(item.lineNumbers, i)
-		items[scanner.Text()] = item
+		items[strings.ToLower(scanner.Text())] = item
 	}
 
 	return items
 }
 
 func getOrCreateQuizItem(items map[string]QuizItem, question string) QuizItem {
-	if _, ok := items[question]; ok {
-		return items[question]
+	hash := strings.ToLower(question)
+
+	if _, ok := items[hash]; ok {
+		return items[hash]
 	}
+
 	return QuizItem{question, []int{}}
 }
 

@@ -26,3 +26,12 @@ func TestFindsADuplicateLine(t *testing.T) {
 
 	assert.Equal(t, expected, Check("abc\ncdf\njoy\ncdf"))
 }
+func TestFindsADuplicateLineNoCase(t *testing.T) {
+	expected := make(map[string]QuizItem)
+
+	expected["i am"] = QuizItem{"I am", []int{1, 3}}
+	expected["you are"] = QuizItem{"You are", []int{2}}
+	expected["he is"] = QuizItem{"He is", []int{4}}
+
+	assert.Equal(t, expected, Check("I am\nYou are\nI am\nHe is"))
+}
