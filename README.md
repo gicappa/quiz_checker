@@ -49,5 +49,9 @@ To test the source code of the checker program just launch the following command
 $ go test ./...
 ```
 
-To check the test output 
+To check the test output just add the verbose mode:
+```bash 
+$ go test -v ./...
+```
+
 
