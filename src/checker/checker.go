@@ -18,8 +18,8 @@ func Check(lines string) map[string]QuizItem {
 
 	scanner := bufio.NewScanner(strings.NewReader(lines))
 
-	for scanner.Scan() {
-		items[scanner.Text()] = QuizItem{scanner.Text(), nil}
+	for i := 0; scanner.Scan(); i++ {
+		items[scanner.Text()] = QuizItem{scanner.Text(), []int{i}}
 	}
 
 	return items
