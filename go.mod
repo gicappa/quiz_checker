@@ -1,4 +1,4 @@
-module github.com/gicappa/quiz-checker-go
+module github.com/gicappa/quiz_checker
 
 go 1.15
 
