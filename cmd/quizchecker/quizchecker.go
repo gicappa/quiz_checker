@@ -1,4 +1,4 @@
-package quizchecker
+package main
 
 import (
 	"fmt"
@@ -9,7 +9,6 @@ import (
 )
 
 func main() {
-	fmt.Println("------------------")
 	contentFile := file.Load(parseFileName())
 	response := checker.Check(contentFile)
 	fmt.Println(response)
@@ -17,7 +16,7 @@ func main() {
 
 func parseFileName() string {
 
-	if len(os.Args) != 1 {
+	if len(os.Args) != 2 {
 		fmt.Printf("usage: %s <filename>", os.Args[0])
 		os.Exit(1)
 	}
