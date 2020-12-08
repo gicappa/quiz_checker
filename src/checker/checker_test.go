@@ -29,9 +29,18 @@ func TestFindsADuplicateLine(t *testing.T) {
 func TestFindsADuplicateLineNoCase(t *testing.T) {
 	expected := make(map[string]QuizItem)
 
-	expected["i am"] = QuizItem{"I am", []int{1, 3}}
-	expected["you are"] = QuizItem{"You are", []int{2}}
-	expected["he is"] = QuizItem{"He is", []int{4}}
+	expected["iam"] = QuizItem{"I am", []int{1, 3}}
+	expected["youare"] = QuizItem{"You are", []int{2}}
+	expected["heis"] = QuizItem{"He is", []int{4}}
 
 	assert.Equal(t, expected, Check("I am\nYou are\nI am\nHe is"))
+}
+
+func TestDisregardsSpaceDifferences(t *testing.T) {
+	expected := make(map[string]QuizItem)
+
+	expected["myduplicate"] = QuizItem{"my Du pli cate", []int{1, 2}}
+	expected["notaduplicate"] = QuizItem{"Not a duplicate", []int{3}}
+
+	assert.Equal(t, expected, Check("my Du pli cate\nMy d upli Ca te\nNot a duplicate"))
 }

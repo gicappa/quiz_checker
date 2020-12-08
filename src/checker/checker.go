@@ -37,7 +37,7 @@ func getOrCreateQuizItem(items map[string]QuizItem, question string) QuizItem {
 }
 
 func hash(str string) string {
-	return strings.ToLower(str)
+	return strings.ReplaceAll(strings.ToLower(str), " ", "")
 }
 
 // Map<String, QuizItem> lines = new HashMap<>();
