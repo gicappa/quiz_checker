@@ -1,17 +1,18 @@
-package file;
-	
+package file
+
 import (
 	"io/ioutil"
 )
 
-func LoadQuiz(name string) []byte {
+// Load the file named name
+func Load(name string) string {
 	content, err := ioutil.ReadFile(name)
 	check(err)
-	return content
+	return string(content)
 }
 
 func check(e error) {
 	if e != nil {
-			panic(e)
+		panic(e)
 	}
 }
