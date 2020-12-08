@@ -42,3 +42,12 @@ $ go build ./...
 ```
 
 When the build terminates, the project directory will contain the executable file named ``checker`.
+
+## How to launch the tests
+To test the source code of the checker program just launch the following command:
+```bash 
+$ go test ./...
+```
+
+To check the test output 
+
