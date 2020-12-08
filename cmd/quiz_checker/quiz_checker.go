@@ -1,8 +1,8 @@
-package main
+package quiz_checker
 
 import (
 	"fmt"
-	"file"
+	"github.com/gicappa/quiz_checker/src/file"
 	"os"
 )
 
