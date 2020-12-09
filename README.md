@@ -12,7 +12,7 @@ my fifth line
 ```
 running the checker it will detect all the repeated lines, and their line number sorting the input alphabetically:
 ```bash
-$ ./checker input.txt
+$ ./quizchecker input.txt
 a repeated line[2 4]
 ```
 
