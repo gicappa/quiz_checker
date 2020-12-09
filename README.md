@@ -38,7 +38,7 @@ To build the checker it is needed to
 ## How to build
 To build the checker program just launch the following command:
 ```bash 
-$ go build ./...
+$ go build github.com/gicappa/quiz_checker/cmd/quizchecker
 ```
 
 When the build terminates, the project directory will contain the executable file named ``checker`.
