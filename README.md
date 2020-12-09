@@ -13,7 +13,7 @@ my fifth line
 running the checker it will detect all the repeated lines, and their line number sorting the input alphabetically:
 ```bash
 $ ./checker input.txt
-a repeated line[2, 4]
+a repeated line[2 4]
 ```
 
 The checker is also able to find similarities disregarding differences in:
