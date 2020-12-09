@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/gicappa/quiz_checker/src/displayer"
+
 	"github.com/gicappa/quiz_checker/src/checker"
 	"github.com/gicappa/quiz_checker/src/file"
 )
@@ -11,7 +13,7 @@ import (
 func main() {
 	contentFile := file.Load(parseFileName())
 	response := checker.Check(contentFile)
-	fmt.Println(response)
+	displayer.Display(response)
 }
 
 func parseFileName() string {

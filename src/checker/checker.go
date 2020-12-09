@@ -9,8 +9,8 @@ import (
 // QuizItem contains the question and the
 // line numbers in which is present
 type QuizItem struct {
-	quizTest    string
-	lineNumbers []int
+	QuizTest    string
+	LineNumbers []int
 }
 
 // Check the lines of a file for duplicates
@@ -21,7 +21,7 @@ func Check(lines string) map[string]QuizItem {
 
 	for i := 1; scanner.Scan(); i++ {
 		item := getOrCreateQuizItem(items, scanner.Text())
-		item.lineNumbers = append(item.lineNumbers, i)
+		item.LineNumbers = append(item.LineNumbers, i)
 		items[hash(scanner.Text())] = item
 	}
 
