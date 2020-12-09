@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/gicappa/quiz_checker/src/displayer"
+	"github.com/gicappa/quiz_checker/displayer"
 
-	"github.com/gicappa/quiz_checker/src/checker"
-	"github.com/gicappa/quiz_checker/src/file"
+	"github.com/gicappa/quiz_checker/checker"
+	"github.com/gicappa/quiz_checker/file"
 )
 
 func main() {

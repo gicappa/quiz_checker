@@ -3,7 +3,7 @@ package displayer
 import (
 	"fmt"
 
-	"github.com/gicappa/quiz_checker/src/checker"
+	"github.com/gicappa/quiz_checker/checker"
 )
 
 // Display the result of the checks
