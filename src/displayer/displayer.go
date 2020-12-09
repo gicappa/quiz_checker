@@ -9,6 +9,8 @@ import (
 // Display the result of the checks
 func Display(items map[string]checker.QuizItem) {
 	for _, item := range items {
-		fmt.Println(item.QuizTest, item.LineNumbers)
+		if len(item.LineNumbers) > 1 {
+			fmt.Println(item.QuizTest, item.LineNumbers)
+		}
 	}
 }
